@@ -1,0 +1,25 @@
+* {
+  margin: 0 auto;
+  padding:2 rem;
+  box-sizing: border-box;
+}
+
+
+
+.dataset_container {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-around;
+  padding : 0.5rem;
+}
+.userinput {
+  display: flex;
+  flex-direction: column;
+  /* text-align: center; */
+  /* align-items: center; */
+  /* width: 80vw */
+  padding : 0.5rem;
+}
+.userinput button {
+  margin : 0.5rem;
+}

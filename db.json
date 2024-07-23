@@ -1,0 +1,40 @@
+{
+  "names": [
+    {
+      "name": "Peter",
+      "email": "peter@email.com",
+      "text": "We  have  seen  at  the  start  that  Backend  is  one  of  the  three  pillars  that  forms your  web  app.  But  there is  a  lot  of  work  to  do  even  if  we  even  simply  want  to  create  a  service  for  data  retrieval. ",
+      "id": "bMZtDi9"
+    },
+    {
+      "id": "ZxEAPGt",
+      "name": "Paul",
+      "email": "paul@email.com",
+      "text": "Setup  a  local  database,  create  some  tables,  build  a  HTTP  server  ,  create  routes on  the  Server  for  different  operations,  write  SQL  to  manipulate  the  data  in  the tables…..and  the  list goes  on. "
+    },
+    {
+      "id": "IpTN5yz",
+      "name": "Mary",
+      "email": "mary@email.com",
+      "text": "JSON  Server  simplifies  all  of  this.  Just  npm  install  -g  json-server  and  you get  a  readymade  Database  and  a  HTTP  Server  .This  package  uses  a  single  file db.json  (or  any  other  JSON  file), treats  the  file  as  a  JSON  database  and  also exposes  routes  on  which  you  can  GET,  POST,  PUT,  DELETE  for  that  db.json  file. "
+    },
+    {
+      "name": "John",
+      "email": "john@email.com",
+      "text": "tubzdbdsldsh ldshölhödsöhildsöihöds öhl  dsd hsdhödshkh",
+      "id": "CtvE11l"
+    },
+    {
+      "name": "Booxxyya",
+      "email": "boo@mail.org",
+      "text": "this is so cool...",
+      "id": "blE-tO6"
+    },
+    {
+      "id": "d15b",
+      "name": "",
+      "email": "",
+      "text": "hjee"
+    }
+  ]
+}
