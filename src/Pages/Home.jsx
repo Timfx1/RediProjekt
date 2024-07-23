@@ -1,4 +1,6 @@
-import NavBar from "./components/NavBar";
+import NavBar from "../components/NavBar";
+import AppFooter from "../Pages/AppFooter";
+
 
 
 function Home() {
@@ -8,6 +10,8 @@ function Home() {
   return (
     <>
       <NavBar />
+      <AppFooter />
+
       
     </>
   );

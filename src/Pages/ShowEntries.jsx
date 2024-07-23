@@ -1,4 +1,6 @@
-import NavBar from "./components/NavBar";
+import NavBar from "../components/NavBar";
+import AppFooter from "../Pages/AppFooter";
+
 
 export default function ShowEntries({APIData, editData, deleteData}) {
     
@@ -16,6 +18,7 @@ export default function ShowEntries({APIData, editData, deleteData}) {
             <button onClick={() => deleteData(data.id)}>Del</button>
           </div>
         ))}
+        <AppFooter/>
       </div>
     )
   }

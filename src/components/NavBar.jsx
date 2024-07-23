@@ -16,11 +16,9 @@ export default function NavBar() {
     return (
       <div className={'mobile-menu'}>
         <Link to="#home" onClick={toggleMobileMenu}>Home</Link>
-        <Link to='#news' onClick={toggleMobileMenu}>News</Link>
-        <Link to='#shop' onClick={toggleMobileMenu}>Shop</Link>
+        <Link to='#news' onClick={toggleMobileMenu}>Entries</Link>
+        <Link to='#shop' onClick={toggleMobileMenu}>Show Entries</Link>
         <Link to='#contact' onClick={toggleMobileMenu}>Contact</Link>
-        <Link to='#about' onClick={toggleMobileMenu}>About</Link>
-        <Link to='#privacy' onClick={toggleMobileMenu}>Privacy Policy</Link>
       </div>
     );
   }; 
@@ -28,19 +26,17 @@ export default function NavBar() {
   return (
     <div className='topnav'>
       {/* Your Logo/Brand here */}
-      <div className='logo'>
-        KINDA<span>CODE</span>
+      <div className='logo' style={{ fontFamily: "Inter, sans-serif", }}>
+        Mediform
       </div>
 
       {/* Desktop Menu, which only appears on large screens */}
       <div className='menu'>
-        <Link to='#home' className='active-link'>
-          Home
-        </Link>
-        <Link to='#news'>News</Link>
-        <Link to='#shop'>Shop</Link>
-        <Link to='#contact'>Contact</Link>
-        <Link to='#about'>About</Link>
+        
+        <Link to='/'>Home</Link>
+        <Link to='/NewEntry'>Entries</Link>
+        <Link to='/ShowEntries'>Show Entries</Link>
+        <Link to='/Contact'>Contact</Link>
       </div>
 
       {/* This button only shows up on small screens. It is used to open the mobile menu */}

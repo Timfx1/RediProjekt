@@ -1,8 +1,10 @@
-import NavBar from "./components/NavBar";
+import NavBar from "../components/NavBar";
 import { useEffect, useState } from "react";
-import "./App.css";
+import "../App.css";
 import axios from "axios";
-import ShowEntries from "./components/ShowEntries";
+import ShowEntries from "./ShowEntries";
+import AppFooter from "../Pages/AppFooter";
+
 
 
 
@@ -132,7 +134,7 @@ function NewEntry() {
 
         <ShowEntries APIDate={APIData} editData={editData} deleteData={deleteData}/>
 
-
+        <AppFooter />
     
 
         
