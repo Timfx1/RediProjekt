@@ -18,7 +18,7 @@ export default function NavBar() {
         <Link to="#home" onClick={toggleMobileMenu}>Home</Link>
         <Link to='#news' onClick={toggleMobileMenu}>Entries</Link>
         <Link to='#shop' onClick={toggleMobileMenu}>Show Entries</Link>
-        <Link to='#contact' onClick={toggleMobileMenu}>Contact</Link>
+        <Link to='#contact' onClick={toggleMobileMenu}><Contact></Contact></Link>
       </div>
     );
   }; 
