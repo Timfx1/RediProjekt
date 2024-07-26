@@ -11,7 +11,7 @@ const AppFooter = () => {
         color: "white"
       }}
     >
-      ©2023 Created by some awesome people
+      ©2023 Created by Timothy
     </Footer>
   );
 };

@@ -8,18 +8,17 @@ function Home() {
       <NavBar />
 
       <div className="long">
-        <div className="relative">
           <div id="toppurple">
             <h1>
-              Your medical <p>assistant</p>
+              Your medical <br />assistant
             </h1>
             <p>Keep your data with you, anywhere, everywhere</p>
-          </div>
         </div>
 
         <div className="absolute middlepic"></div>
         <div className="othermiddlepic"></div>
       </div>
+      
       <div className="Bgim">
         <h2>Take your medical notes into your own hands</h2>
         <button id="btnnew">Start writing</button>
@@ -50,7 +49,7 @@ function Home() {
       </div>
 
       <div className="hjg">
-        <img src="../images/Rectangle 5.png" alt="hello" />
+        <img src="./src/images/Group 53.png" alt="hello" />
         <p>
           Let´s reach you where you are <br />
           Search for clinics near you

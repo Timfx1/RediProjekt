@@ -87,13 +87,13 @@ function NewEntry() {
       <NavBar />
       <div className="mainDiv">
         <div className="ChildDiv">
-          <h2>Examination</h2>
+          <h2 className="blackish">Examination</h2>
           <input
             type="date"
             placeholder=" icon Date of exam"
             className="entry space"
           />
-          <h2>Doctor´s information</h2>
+          <h2 className="blackish">Doctor´s information</h2>
           <input
             type="text"
             placeholder="Doctor´s specification  ▼  "
