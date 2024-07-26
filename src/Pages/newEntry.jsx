@@ -10,7 +10,14 @@ function NewEntry() {
   const [APIData, setAPIData] = useState([]);
 
   const [id, setID] = useState("");
+  const [date, setDate] = useState("");
+  const [specification, setSpecification] = useState("");
   const [name, setName] = useState("");
+  const [street, setStreet] = useState("");
+  const [zip, setZip] = useState("");
+  const [city, setCity] = useState("");
+  const [country, setCountry] = useState("");
+  const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [text, setText] = useState("");
 
@@ -32,9 +39,16 @@ function NewEntry() {
   // create new dataset with user input stored in useStates name, email, text
   const createData = async () => {
     const request = axios.post(`${baseUrl}`, {
+      date,
+      specification,
       name,
+      street,
+      ZIP,
+      country,
+      phone,
       email,
       text,
+      id,
     });
     const response = await request;
     console.log(response.data);
