@@ -3,13 +3,24 @@ import AppFooter from "../Pages/AppFooter";
 import "../App.css";
 
 function Home() {
+  // const NavigationButton = () => {
+  //   const navigate = useNavigate();
+  
+  //   const handleNavigate = () => {
+  //     navigate('/about');
+  //   };
+  const handleNavigate = () => {
+    window.location.href = "/newEntry";
+  };
+  const emergencyNumber = '911';
   return (
     <>
       <NavBar />
 
       <div className="long">
         <div className="Ebtn">
-          <button>Emergency call</button>
+          <button onClick={() => window.location.href = `tel:${emergencyNumber}`} 
+      >Emergency call</button>
         </div>
           <div id="toppurple">
             <h1>
@@ -24,7 +35,7 @@ function Home() {
       
       <div className="Bgim">
         <h2>Take your medical notes into your own hands</h2>
-        <button id="btnnew">Start writing</button>
+        <button id="btnnew" onClick={handleNavigate}>Start writing</button>
       </div>
 
       <div className="hjh">

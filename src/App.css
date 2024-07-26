@@ -113,6 +113,7 @@ h3{
 width: 50%;
 display: flex;
 justify-content: space-between;
+padding: 30px;
 }
 .childdiv2{
   text-align: center;
@@ -192,4 +193,12 @@ h1{
 .Ebtn>button{
   color: white;
   background-color: rgb(134, 59, 59);
+}
+.inputTe{
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  color: black;
 }

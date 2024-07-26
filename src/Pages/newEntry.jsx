@@ -14,7 +14,7 @@ function NewEntry() {
   const [specification, setSpecification] = useState("");
   const [name, setName] = useState("");
   const [street, setStreet] = useState("");
-  const [zip, setZip] = useState("");
+  const [ZIP, setZIP] = useState("");
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
   const [phone, setPhone] = useState("");
@@ -44,6 +44,7 @@ function NewEntry() {
       name,
       street,
       ZIP,
+      city,
       country,
       phone,
       email,
@@ -70,6 +71,13 @@ function NewEntry() {
     // alert("edit ID " + id +" and Index " + index)
     setEditmode(true);
     setID(APIData[index].id);
+    setDate(APIData[index].date);
+    setSpecification(APIData[index].specification);
+    setStreet(APIData[index].street);
+    setZIP(APIData[index].ZIP);
+    setCity(APIData[index].city);
+    setCountry(APIData[index].country);
+    setPhone(APIData[index].phone);
     setName(APIData[index].name);
     setEmail(APIData[index].email);
     setText(APIData[index].text);
@@ -78,9 +86,17 @@ function NewEntry() {
   const updateData = async () => {
     // alert("update ID " + id)
     const request = axios.put(`${baseUrl}/${id}`, {
+      date,
+      specification,
       name,
+      street,
+      ZIP,
+      city,
+      country,
+      phone,
       email,
       text,
+      id,
     });
     const response = await request;
     console.log(response.data);
@@ -91,6 +107,14 @@ function NewEntry() {
   };
 
   const resetInput = () => {
+    setID("");
+    setDate("");
+    setSpecification("");
+    setStreet("");
+    setZIP("");
+    setCity("");
+    setCountry("");
+    setPhone("");
     setName("");
     setEmail("");
     setText("");
@@ -103,15 +127,19 @@ function NewEntry() {
         <div className="ChildDiv">
           <h2 className="blackish">Examination</h2>
           <input
-            type="date"
-            placeholder=" icon Date of exam"
+            type="text"
+            placeholder="Date of exam"
             className="entry space"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
           />
           <h2 className="blackish">Doctor´s information</h2>
           <input
             type="text"
-            placeholder="Doctor´s specification  ▼  "
+            placeholder="Doctor´s specification   "
             className="entry space"
+            value={specification}
+            onChange={(e) => setSpecification(e.target.value)}
           />
           <div className="flexEntries space">
             <input type="text" placeholder="Name" className="entry" />
@@ -119,20 +147,23 @@ function NewEntry() {
               type="text"
               placeholder="Street name and number"
               className="entry"
+              value={street}
+            onChange={(e) => setStreet(e.target.value)}
             />
           </div>
           <div className="flexEntries space">
-            <input type="text" placeholder="ZIP" className="entry" />
-            <input type="text" placeholder="City" className="entry" />
+            <input type="number" placeholder="ZIP" className="entry" value={ZIP} onChange={(e) => setZIP(e.target.value)}/>
+            <input type="text" placeholder="City" className="entry" value={city} onChange={(e) => setCity(e.target.value)}/>
           </div>
-          <input type="text" placeholder="Country" className="entry space" />
+          <input type="text" placeholder="Country" className="entry space" value={country} onChange={(e) => setCountry(e.target.value)}/>
           <div className="flexEntries space">
             <input
               type="text"
               placeholder="Telephone Number"
               className="entry"
+              value={phone} onChange={(e) => setPhone(e.target.value)}
             />
-            <input type="text" placeholder="E-Mail" className="entry" />
+            <input type="text" placeholder="E-Mail" className="entry" value={email} onChange={(e) => setEmail(e.target.value)}/>
           </div>
         </div>
 
@@ -141,18 +172,22 @@ function NewEntry() {
             type="text"
             placeholder="Notes/Remarks  ★"
             className="MainEntry"
+            value={text} onChange={(e) => setText(e.target.value)}
           />
         </div>
       </div>
 
       <div className="BottomButtons">
-          <button className="CancelButton">Cancel</button>
-          <button className="SaveButton">Save</button>
+          <button className="CancelButton" onClick={resetInput} type="submit">Cancel</button>
+          <button className="SaveButton" onClick={createData} type="submit">Save</button>
         </div>
 
-      <div className="App">
-        <div className="userinput">
-          <label htmlFor="name">Name</label>
+        <AppFooter />
+
+
+      {/* <div className="App">
+        <div className="userinput"> */}
+          {/* <label htmlFor="name">Name</label>
           <input
             type="text"
             id="name"
@@ -172,9 +207,9 @@ function NewEntry() {
             id="text"
             value={text}
             onChange={(e) => setText(e.target.value)}
-          />
+          /> */}
           {/* Conditional rendering for edit mode or add mode */}
-          {editmode ? (
+          {/* {editmode ? (
             <button onClick={updateData} type="submit">
               {" "}
               Update this dataset{" "}
@@ -184,16 +219,12 @@ function NewEntry() {
               {" "}
               Add new dataset{" "}
             </button>
-          )}
+          )} */}
 
-          <button onClick={resetInput} type="submit">
-            {" "}
-            Clear entry fields
-          </button>
-        </div>
+         
+        {/* </div>
 
-        <AppFooter />
-      </div>
+      </div> */}
     </>
   );
 }
