@@ -18,7 +18,7 @@ export default function NavBar() {
         <Link to="#home" onClick={toggleMobileMenu}>Home</Link>
         <Link to='#news' onClick={toggleMobileMenu}>Entries</Link>
         <Link to='#shop' onClick={toggleMobileMenu}>Show Entries</Link>
-        <Link to='#contact' onClick={toggleMobileMenu}><Contact></Contact></Link>
+        <Link to='#contact' onClick={toggleMobileMenu}>Locate</Link>
       </div>
     );
   }; 
@@ -36,7 +36,7 @@ export default function NavBar() {
         <Link to='/'>Home</Link>
         <Link to='/NewEntry'>Entries</Link>
         <Link to='/ShowEntries'>Show Entries</Link>
-        <Link to='/Contact'>Contact</Link>
+        <Link to='/Contact'>Locate</Link>
       </div>
 
       {/* This button only shows up on small screens. It is used to open the mobile menu */}

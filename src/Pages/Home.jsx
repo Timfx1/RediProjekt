@@ -8,6 +8,9 @@ function Home() {
       <NavBar />
 
       <div className="long">
+        <div className="Ebtn">
+          <button>Emergency call</button>
+        </div>
           <div id="toppurple">
             <h1>
               Your medical <br />assistant

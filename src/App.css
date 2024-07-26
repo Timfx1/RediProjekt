@@ -141,6 +141,7 @@ justify-content: space-around;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  text-align: center;
 }
 p{
   font-size: 32px;
@@ -184,4 +185,11 @@ h1{
   height: 30px;
   background-color: black;
 }
-
+.Ebtn{
+  display: flex;
+  justify-content: flex-end;
+}
+.Ebtn>button{
+  color: white;
+  background-color: rgb(134, 59, 59);
+}
