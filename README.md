@@ -16,4 +16,6 @@ Easy availability and access to information
 **LINK TO FIGMA DESIGN**
 https://www.figma.com/design/8XKBr5mxdH7ozMxvizlJZB/RediProjekt?node-id=0-1&t=SVNJ8huqtdsf8QQE-1
 
+**LINK TO PRESENTATION**
+https://prezi.com/view/vthgDG3dJxLAT6sqUQx9/
 
