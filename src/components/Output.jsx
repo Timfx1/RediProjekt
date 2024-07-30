@@ -5,6 +5,29 @@ import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
 // eslint-disable-next-line react/prop-types
 export default function Output({ APIData, deleteData, handleEdit }) {
+ 
+  const handleShare = (data) => {
+    if (navigator.share) {
+      navigator.share({
+        title: 'Medical Note',
+        text: data.text,
+        url: window.location.href,
+      })
+      .then(() => console.log('Share successful'))
+      .catch((error) => console.log('Sharing failed', error));
+    } else {
+      // alert('Web Share API is not supported in your browser.');
+      
+      // Fallback for unsupported browsers
+       const textToShare = `Title: Medical Note\nText: ${data.text}\nURL: ${window.location.href}`;
+       navigator.clipboard.writeText(textToShare).then(() => {
+         alert('Text copied to clipboard. You can now paste it to share.');
+       }).catch((error) => {
+         alert('Failed to copy text: ' + error);
+       });
+    }
+  };
+  
   return (
     <div>
       <h2>Datasets from Json Server are now:</h2>
@@ -31,7 +54,7 @@ export default function Output({ APIData, deleteData, handleEdit }) {
                 >
                   VIEW UPDATE
                 </button>
-                <button className="CancelButton">SHARE</button>
+                <button className="CancelButton" onClick={() => handleShare(data)}>SHARE</button>
                 <FontAwesomeIcon
                   icon={faTrashAlt}
                   style={{ color: "black" }}
