@@ -86,3 +86,12 @@ color: #4596A7;
     display: flex;
     justify-content: space-between;
 }
+@media (max-width:768px) {
+    .mainDiv{
+        flex-direction: column;
+    }
+    .ChildDiv{
+        width: 100%;
+    }
+
+}

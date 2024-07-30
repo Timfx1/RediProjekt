@@ -217,3 +217,27 @@ h1{
 }
 
 
+@media (max-width:768px) {
+  body {
+    margin: 0 auto;
+    padding: 0;
+    height: 100vh;
+    text-align: center;
+  }
+  .childDiv, .motherdiv, .hjg {
+   flex-direction: column;
+  }
+  .childDiv{
+    width: 100%;
+  }
+  .othermiddlepic, .middlepic {
+    display: none;
+  }
+  #toppurple{
+    margin-left: 0;
+    width:100%;
+  }
+  .bottomContact{
+    flex-direction: column;
+  }
+}
