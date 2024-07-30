@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect, useCallback } from 'react';
 import axios from "axios";
 
 export const DataContext = createContext();
@@ -19,14 +19,14 @@ const DataContextProvider = (props) => {
   const [text, setText] = useState("");
   const [editmode, setEditmode] = useState(false);
 
-  const fetchNames = async () => {
+  const fetchNames = useCallback(async () => {
     const response = await axios.get(baseUrl);
     setAPIData(response.data);
-  };
+  }, []);
 
   useEffect(() => {
     fetchNames();
-  }, []);
+  }, [fetchNames]);
 
   const createData = async () => {
     const response = await axios.post(baseUrl, {
@@ -100,6 +100,7 @@ const DataContextProvider = (props) => {
 
   return (
     <DataContext.Provider value={{
+      fetchNames, // <-- Add fetchNames to the context
       updateData,
       createData,
       deleteData,
