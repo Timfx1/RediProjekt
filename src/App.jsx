@@ -1,34 +1,30 @@
 import "./App.css";
-
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import NewEntry from "./Pages/newEntry"
 import ShowEntries from "./Pages/ShowEntries"
 import Contact from "./Pages/Contact"
 import Home from "./Pages/Home"
+import DataContextProvider from "./Pages/DataContextProvider";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/NewEntry",
-    element: <NewEntry />,
-  },
-  {
-    path: "/ShowEntries",
-    element: <ShowEntries />,
-  },
- 
-  {
-    path: "/Contact",
-    element: <Contact />,
-  },
-  
-]);
+
 
 function App() {
-  return <RouterProvider router={router} />;
+  return <div >
+
+  <DataContextProvider>
+
+  <Router>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/NewEntry" element={<NewEntry />} />
+      <Route path="/ShowEntries" element={<ShowEntries />} />
+      <Route path="/Locate" element={<Contact />} />
+    </Routes>
+  </Router>
+
+</DataContextProvider>
+</div>
+
 }
 
 export default App;
