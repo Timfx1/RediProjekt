@@ -1,11 +1,10 @@
-import React from "react";
 import "../Pages/newEntry.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
 // eslint-disable-next-line react/prop-types
-export default function Output({ APIData, deleteData, editData }) {
+export default function Output({ APIData, deleteData, handleEdit }) {
   return (
     <div>
       <h2>Datasets from Json Server are now:</h2>
@@ -27,7 +26,7 @@ export default function Output({ APIData, deleteData, editData }) {
               <div className="BottomButtons">
                 <button
                   className="SaveButton"
-                  onClick={() => editData(data.id, index)}
+                  onClick={() => handleEdit(data.id, index)}
                   type="submit"
                 >
                   VIEW UPDATE

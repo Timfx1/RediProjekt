@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect, useCallback } from 'react';
 import axios from "axios";
+import { v4 as uuidv4 } from 'uuid';  // Import uuid library
 
 export const DataContext = createContext();
 
@@ -29,6 +30,7 @@ const DataContextProvider = (props) => {
   }, [fetchNames]);
 
   const createData = async () => {
+    const newID = uuidv4(); // Generate a new unique ID
     const response = await axios.post(baseUrl, {
       date,
       specification,
@@ -40,7 +42,7 @@ const DataContextProvider = (props) => {
       phone,
       email,
       text,
-      id,
+      id: newID,
     });
     fetchNames();
   };
@@ -65,6 +67,12 @@ const DataContextProvider = (props) => {
     setText(APIData[index].text);
   };
 
+  const fetchDataById = useCallback(async (id) => {
+    const response = await fetch(`/api/entries/${id}`);
+    const data = await response.json();
+    return data;
+  }, []);
+  
   const updateData = async () => {
     const response = await axios.put(`${baseUrl}/${id}`, {
       date,
@@ -100,12 +108,13 @@ const DataContextProvider = (props) => {
 
   return (
     <DataContext.Provider value={{
-      fetchNames, // <-- Add fetchNames to the context
+      fetchNames,
       updateData,
       createData,
       deleteData,
       editData,
       editmode,
+      fetchDataById,
       resetInput,
       APIData,
       setAPIData,

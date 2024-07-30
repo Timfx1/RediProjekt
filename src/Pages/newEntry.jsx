@@ -1,4 +1,6 @@
-import  { useContext } from "react";
+import  { useContext, useEffect } from "react";
+import { useParams } from "react-router-dom";
+
 import NavBar from "../components/NavBar";
 import "../App.css";
 import "./newEntry.css";
@@ -29,7 +31,29 @@ function NewEntry() {
     setText,
     resetInput,
     createData,
+    fetchDataById,
   } = useContext(DataContext);
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    if (id) {
+      fetchDataById(id).then(data => {
+        setDate(data.date);
+        setSpecification(data.specification);
+        setName(data.name);
+        setStreet(data.street);
+        setZIP(data.ZIP);
+        setCity(data.city);
+        setCountry(data.country);
+        setPhone(data.phone);
+        setEmail(data.email);
+        setText(data.text);
+      });
+    }
+  }, [id, fetchDataById, setDate, setSpecification, setName, setStreet, setZIP, setCity, setCountry, setPhone, setEmail, setText]);
+
+  
 
   return (
     <>
