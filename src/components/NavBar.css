@@ -1,6 +1,5 @@
 .topnav {
   height: 56px;
-  padding: 0px 20px;
   background: #73B0FF;
   display: flex;
   justify-content: space-between;
@@ -108,9 +107,7 @@
 
 /* Media queries for responsiveness */
 @media screen and (min-width: 680px) {
-  .topnav {
-    justify-content: flex-start;
-  }
+ 
 
   .show-mobile-menu-button {
     display: none;

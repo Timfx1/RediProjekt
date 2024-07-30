@@ -1,144 +1,159 @@
-import NavBar from "./components/NavBar";
-import { useEffect, useState } from "react";
-import "./App.css";
-import axios from "axios";
-import ShowEntries from "./components/ShowEntries";
+import  { useContext, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-
+import NavBar from "../components/NavBar";
+import "../App.css";
+import "./newEntry.css";
+import AppFooter from "../Pages/AppFooter";
+import { DataContext } from "./DataContextProvider";
 
 function NewEntry() {
-    const baseUrl = "http://localhost:3001/names";
-    const [APIData, setAPIData] = useState([]);
-  
-    const [id, setID] = useState("");
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [text, setText] = useState("");
-  
-    const [editmode, setEditmode] = useState(false);
-  
-    // function to read in json file and store in useState
-    const fetchNames = async () => {
-      const request = axios.get(baseUrl);
-  
-      const response = await request;
-      console.log(response.data);
-      setAPIData(response.data);
-    };
-    //   read in json file via function above when component is mounted
-    useEffect(() => {
-      fetchNames();
-    }, []);
-  
-    // create new dataset with user input stored in useStates name, email, text
-    const createData = async () => {
-      const request = axios.post(`${baseUrl}`, {
-        name,
-        email,
-        text,
+  const {
+    date,
+    setDate,
+    specification,
+    setSpecification,
+    name,
+    setName,
+    street,
+    setStreet,
+    ZIP,
+    setZIP,
+    city,
+    setCity,
+    country,
+    setCountry,
+    phone,
+    setPhone,
+    email,
+    setEmail,
+    text,
+    setText,
+    resetInput,
+    createData,
+    fetchDataById,
+  } = useContext(DataContext);
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    if (id) {
+      fetchDataById(id).then(data => {
+        setDate(data.date);
+        setSpecification(data.specification);
+        setName(data.name);
+        setStreet(data.street);
+        setZIP(data.ZIP);
+        setCity(data.city);
+        setCountry(data.country);
+        setPhone(data.phone);
+        setEmail(data.email);
+        setText(data.text);
       });
-      const response = await request;
-      console.log(response.data);
-      // read in changed json file via function
-      fetchNames();
-    };
+    }
+  }, [id, fetchDataById, setDate, setSpecification, setName, setStreet, setZIP, setCity, setCountry, setPhone, setEmail, setText]);
+
   
-    // delete dataset by user choice
-    const deleteData = async (id) => {
-      const request = axios.delete(`${baseUrl}/${id}`);
-      const response = await request;
-      console.log(response.data);
-      // read in changed json file via function
-      fetchNames();
-    };
-  
-    // show selected dataset by user in input fields for modification
-    const editData = async (id, index) => {
-      // alert("edit ID " + id +" and Index " + index)
-      setEditmode(true);
-      setID(APIData[index].id);
-      setName(APIData[index].name);
-      setEmail(APIData[index].email);
-      setText(APIData[index].text);
-    };
-    // update dataset by user modification
-    const updateData = async () => {
-      // alert("update ID " + id)
-      const request = axios.put(`${baseUrl}/${id}`, {
-        name,
-        email,
-        text,
-      });
-      const response = await request;
-      console.log(response.data);
-      // read in updated json file via function
-      fetchNames();
-      setEditmode(false);
-      resetInput();
-    };
-  
-    const resetInput = () => {
-      setName("");
-      setEmail("");
-      setText("");
-    };
-  
-  
-  
+
   return (
     <>
       <NavBar />
-      <div className="App">
-        <div className="userinput">
-          <label htmlFor="name">Name</label>
+      <div className="mainDiv">
+        <div className="ChildDiv">
+          <h2 className="blackish">Examination</h2>
           <input
             type="text"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            placeholder="Date of exam"
+            className="entry space"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
           />
-          <label htmlFor="email">Email</label>
+          <h2 className="blackish">Doctor´s information</h2>
           <input
             type="text"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Doctor´s specification"
+            className="entry space"
+            value={specification}
+            onChange={(e) => setSpecification(e.target.value)}
           />
-          <label htmlFor="text">Text</label>
+          <div className="flexEntries space">
+            <input
+              type="text"
+              placeholder="Name"
+              className="entry"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Street name and number"
+              className="entry"
+              value={street}
+              onChange={(e) => setStreet(e.target.value)}
+            />
+          </div>
+          <div className="flexEntries space">
+            <input
+              type="number"
+              placeholder="ZIP"
+              className="entry"
+              value={ZIP}
+              onChange={(e) => setZIP(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="City"
+              className="entry"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+            />
+          </div>
           <input
             type="text"
-            id="text"
+            placeholder="Country"
+            className="entry space"
+            value={country}
+            onChange={(e) => setCountry(e.target.value)}
+          />
+          <div className="flexEntries space">
+            <input
+              type="text"
+              placeholder="Telephone Number"
+              className="entry"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="E-Mail"
+              className="entry"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+        </div>
+
+        <div className="ChildDiv">
+          <input
+            type="text"
+            placeholder="Notes/Remarks ★"
+            className="MainEntry"
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
-          {/* Conditional rendering for edit mode or add mode */}
-          {editmode ? (
-            <button onClick={updateData} type="submit">
-              {" "}
-              Update this dataset{" "}
-            </button>
-          ) : (
-            <button onClick={createData} type="submit">
-              {" "}
-              Add new dataset{" "}
-            </button>
-          )}
-
-          <button onClick={resetInput} type="submit">
-            {" "}
-            Clear entry fields
-          </button>
         </div>
-
-        <ShowEntries APIDate={APIData} editData={editData} deleteData={deleteData}/>
-
-
-    
-
-        
       </div>
-      
-     
+
+      <div className="BottomButtons">
+        <button className="CancelButton" onClick={resetInput} type="submit">
+          Cancel
+        </button>
+        <button className="SaveButton" onClick={createData} type="submit">
+          Save
+        </button>
+      </div>
+
+      <AppFooter />
     </>
   );
 }

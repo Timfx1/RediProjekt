@@ -1,21 +1,32 @@
-import NavBar from "./components/NavBar";
+import  { useContext, useEffect, useState } from "react";
+import NavBar from "../components/NavBar";
+import { useNavigate } from "react-router-dom";
+import AppFooter from "../Pages/AppFooter";
+import Output from "../components/Output";
+import { DataContext } from "./DataContextProvider";
 
-export default function ShowEntries({APIData, editData, deleteData}) {
-    
-    return (
-      <div>
-        <NavBar />
-        <h2>Datasets from Json Server are now:</h2>
-        {APIData?.map((data, index) => (
-          <div className="dataset_container" key={index}>
-            <h3>{data.id}</h3>
-            <h3>{data.name}</h3>
-            <h3>{data.email}</h3>
-            {/* index to identify dataset index for copy fill in on input fields above */}
-            <button onClick={() => editData(data.id, index)}>Edit</button>
-            <button onClick={() => deleteData(data.id)}>Del</button>
-          </div>
-        ))}
-      </div>
-    )
-  }
+export default function ShowEntries() {
+  const { APIData, fetchNames, deleteData} = useContext(DataContext);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    fetchNames().then(() => setLoading(false));
+  }, [fetchNames]);
+
+  const handleEdit = (id) => {
+    navigate(`/NewEntry/${id}`);
+  };
+
+  return (
+    <div>
+      <NavBar />
+      {!loading && APIData.length > 0 ? (
+        <Output APIData={APIData}  handleEdit={handleEdit} deleteData={deleteData} />
+      ) : (
+        <p>Loading...</p>
+      )}
+      <AppFooter />
+    </div>
+  );
+}

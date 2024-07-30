@@ -1,0 +1,88 @@
+.mainDiv{
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+}
+.ChildDiv{
+    width: 50%;
+}
+.blackish{
+    color: rgba(0, 0, 0, 0.6);
+}
+h4{
+    color: rgba(0, 0, 0, 0.6);
+}
+.entry{
+    border: 2px rgba(0, 0, 0, 0.38) solid;
+    width: 50%;
+    border-radius: 4px;
+    padding: 10px;
+}
+.entry::placeholder{
+    font-size: 16px;
+}
+.flexEntries{
+    display: flex;
+    gap: 10px;
+}
+.MainEntry{
+    height: 100%;
+    background-color: #4597a72d;
+    border-color: rgba(0, 0, 0, 0.42);
+    width: 100%;
+    padding: 20px; 
+    border-bottom: 2px black solid;  
+}
+.MainEntry::placeholder{
+    position: relative;
+    top: -240px; 
+    font-size: 40px;
+
+}
+.CancelButton{
+    border: 2px #4596A7 solid;
+color: #4596A7;
+}
+.SaveButton{
+    border: 2px #4596A7 solid;
+    color: white;
+    background-color: #4596A7;
+
+}
+.BottomButtons{
+    display: flex;
+    justify-content: flex-end; 
+    padding: 1rem;
+    align-items: center; 
+    gap: 10px;
+}
+.space{
+    margin: 15px;
+}
+.spaceBtn{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+.spaceAround{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+}
+.smallText{
+    color: rgba(0, 0, 0, 0.27);
+    font-size: small;
+}
+
+.ViewDetails{
+    background-color: #4597a72d;
+    border: 1px #4597a72d solid;
+    border-radius: 4px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
