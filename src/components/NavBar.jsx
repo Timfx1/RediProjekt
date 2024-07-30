@@ -15,10 +15,10 @@ export default function NavBar() {
   const MobileMenu = () => {  
     return (
       <div className={'mobile-menu'}>
-        <Link to="#home" onClick={toggleMobileMenu}>Home</Link>
-        <Link to='#news' onClick={toggleMobileMenu}>Entries</Link>
-        <Link to='#shop' onClick={toggleMobileMenu}>Show Entries</Link>
-        <Link to='#contact' onClick={toggleMobileMenu}>Locate</Link>
+        <Link to="/" onClick={toggleMobileMenu}>Home</Link>
+        <Link to='/NewEntry' onClick={toggleMobileMenu}>Entries</Link>
+        <Link to='/ShowEntries' onClick={toggleMobileMenu}>Show Entries</Link>
+        <Link to='/Contact' onClick={toggleMobileMenu}>Locate</Link>
       </div>
     );
   }; 
