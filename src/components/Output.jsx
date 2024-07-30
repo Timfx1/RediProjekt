@@ -30,7 +30,7 @@ export default function Output({ APIData, deleteData, handleEdit }) {
   
   return (
     <div>
-      <h2>Datasets from Json Server are now:</h2>
+  
       {APIData?.map((data, index) => (
         <div key={index}>
           <div className="spaceBtn">

@@ -202,3 +202,18 @@ h1{
   border: none;
   color: black;
 }
+.still-here{
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.3s, text-decoration 0.3s;
+  font-size: 32px;
+
+}
+
+.still-here:hover {
+  color: #0056b3; 
+  text-decoration: underline;
+
+}
+
+
